@@ -1,0 +1,416 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Psysocare - Psychology Help Desk</title>
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700&family=Lato:wght@400;700&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        body { font-family: 'Lato', sans-serif; background-color: #f8f9fa; }
+        h1, h2, h3, h4, h5, h6 { font-family: 'Montserrat', sans-serif; }
+        .hero-gradient {
+            background: linear-gradient(rgba(29, 78, 216, 0.8), rgba(29, 78, 216, 0.9)), url('https://images.unsplash.com/photo-1503676260728-1c00da094a0b?auto=format&fit=crop&w=600&q=80');
+            background-size: cover; background-position: center;
+        }
+        @media (min-width: 768px) {
+            .hero-gradient {
+                background-image: linear-gradient(rgba(29, 78, 216, 0.8), rgba(29, 78, 216, 0.9)), url('https://images.unsplash.com/photo-1503676260728-1c00da094a0b?auto=format&fit=crop&w=1200&q=80');
+            }
+        }
+        .fade-in-up { opacity: 0; transform: translateY(20px); transition: opacity 0.6s ease-out, transform 0.6s ease-out; }
+        .fade-in-up.visible { opacity: 1; transform: translateY(0); }
+        .service-card { transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out; }
+        .service-card:hover { transform: translateY(-10px); box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04); }
+        .btn-primary { transition: all 0.3s ease; }
+        .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 4px 10px rgba(0,0,0,0.2); }
+        .whatsapp-float {
+            position: fixed; width: 60px; height: 60px; bottom: 40px; right: 20px;
+            background-color: #25d366; color: #FFF; border-radius: 50px;
+            text-align: center; font-size: 30px; box-shadow: 2px 2px 6px rgba(0,0,0,0.4);
+            z-index: 100; transition: transform 0.3s ease;
+        }
+        .whatsapp-float:hover { transform: scale(1.1); }
+        .whatsapp-float i { margin-top: 15px; }
+        .scrollbar-hide::-webkit-scrollbar { display: none; }
+        .scrollbar-hide { -ms-overflow-style: none; scrollbar-width: none; }
+    </style>
+</head>
+<body class="bg-gray-50 text-gray-800">
+
+    <header class="bg-white shadow-md sticky top-0 z-50">
+        <nav class="container mx-auto px-4 sm:px-6 py-3 flex justify-between items-center">
+            <a href="#" class="flex items-center">
+                <img src="https://i.ibb.co/RkYyMWfh/craiyon-172947-image.png" alt="Psysocare Logo" class="h-10 w-10 mr-2">
+                <span class="text-xl sm:text-2xl font-bold text-blue-700">PSYSOCARE</span>
+            </a>
+            <div class="hidden md:flex space-x-6 items-center">
+                <a href="#about" class="text-gray-600 hover:text-blue-700">About</a>
+                <a href="#services" class="text-gray-600 hover:text-blue-700">Services</a>
+                <a href="#testimonials" class="text-gray-600 hover:text-blue-700">Reviews</a>
+                <a href="#process" class="text-gray-600 hover:text-blue-700">Process</a>
+                <a href="#contact" class="text-gray-600 hover:text-blue-700">Contact</a>
+            </div>
+            <div class="md:hidden">
+                <button id="menu-btn" class="text-gray-600 hover:text-blue-700 focus:outline-none" aria-label="Open Menu">
+                    <i class="fas fa-bars fa-lg"></i>
+                </button>
+            </div>
+        </nav>
+        <div id="mobile-menu" class="hidden md:hidden">
+            <a href="#about" class="block py-3 px-4 text-sm hover:bg-gray-200 mobile-link">About</a>
+            <a href="#services" class="block py-3 px-4 text-sm hover:bg-gray-200 mobile-link">Services</a>
+            <a href="#testimonials" class="block py-3 px-4 text-sm hover:bg-gray-200 mobile-link">Reviews</a>
+            <a href="#process" class="block py-3 px-4 text-sm hover:bg-gray-200 mobile-link">Process</a>
+            <a href="#contact" class="block py-3 px-4 text-sm hover:bg-gray-200 mobile-link">Contact</a>
+        </div>
+    </header>
+
+    <section class="hero-gradient text-white py-20">
+        <div class="container mx-auto px-4 sm:px-6 text-center">
+            <h1 class="text-4xl md:text-5xl font-bold mb-4 animate-fade-in">Navigate Your Psychology Journey with Confidence</h1>
+            <p class="text-lg md:text-xl mb-8 max-w-3xl mx-auto">Your dedicated partner for academic success, career preparation, and personal growth in the field of psychology.</p>
+            <a href="#services" class="bg-white text-blue-700 font-bold py-3 px-8 rounded-full hover:bg-gray-200 transition duration-300 btn-primary">Explore Our Services</a>
+        </div>
+    </section>
+
+    <section id="about" class="py-16 sm:py-20 bg-white">
+        <div class="container mx-auto px-4 sm:px-6">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl md:text-4xl font-bold text-gray-900">Your Psychology Help Desk</h2>
+                <p class="text-gray-600 mt-4 max-w-3xl mx-auto">
+                    🎓 Academic | 💬 Counseling | 🎯 Career | 📊 JASP | 📚 Workshops<br>
+                    We support psychology students & grads with assignments, projects, counseling, career prep & more.
+                </p>
+            </div>
+            <div class="grid md:grid-cols-3 gap-8 text-center">
+                <div class="p-6 fade-in-up">
+                    <div class="text-blue-700 text-5xl mb-4"><i class="fas fa-user-graduate"></i></div>
+                    <h3 class="text-xl font-bold mb-2">Expert Guidance</h3>
+                    <p class="text-gray-600">Our team consists of experienced psychology professionals and educators.</p>
+                </div>
+                <div class="p-6 fade-in-up" style="transition-delay: 200ms;">
+                    <div class="text-blue-700 text-5xl mb-4"><i class="fas fa-laptop-code"></i></div>
+                    <h3 class="text-xl font-bold mb-2">Tailored Support</h3>
+                    <p class="text-gray-600">We provide personalized assistance to meet your specific academic and career needs.</p>
+                </div>
+                <div class="p-6 fade-in-up" style="transition-delay: 400ms;">
+                    <div class="text-blue-700 text-5xl mb-4"><i class="fas fa-shield-alt"></i></div>
+                    <h3 class="text-xl font-bold mb-2">Confidential & Trusted</h3>
+                    <p class="text-gray-600">All our services are 100% confidential and professionally delivered.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="services" class="py-16 sm:py-20">
+        <div class="container mx-auto px-4 sm:px-6">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl md:text-4xl font-bold text-gray-900">Our Services</h2>
+                <p class="text-gray-600 mt-4 max-w-2xl mx-auto">Comprehensive support designed for psychology students and graduates.</p>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <div class="bg-white rounded-lg shadow-lg p-8 service-card fade-in-up">
+                    <div class="text-green-500 text-4xl mb-4"><i class="fas fa-book-open"></i></div>
+                    <h3 class="text-xl font-bold mb-3">Academic & Assignment Support</h3>
+                    <p class="text-gray-600">Expert help with research papers, case studies, and understanding complex theories.</p>
+                </div>
+                <div class="bg-white rounded-lg shadow-lg p-8 service-card fade-in-up" style="transition-delay: 100ms;">
+                    <div class="text-purple-500 text-4xl mb-4"><i class="fas fa-briefcase"></i></div>
+                    <h3 class="text-xl font-bold mb-3">Career Prep & Guidance</h3>
+                    <p class="text-gray-600">CV/Resume building, interview preparation, and guidance for entrance exams (M.Phil, PhD).</p>
+                </div>
+                <div class="bg-white rounded-lg shadow-lg p-8 service-card fade-in-up" style="transition-delay: 200ms;">
+                    <div class="text-red-500 text-4xl mb-4"><i class="fas fa-comments"></i></div>
+                    <h3 class="text-xl font-bold mb-3">Confidential Counseling</h3>
+                    <p class="text-gray-600">A safe space to discuss academic stress, anxiety, and challenges of student life.</p>
+                </div>
+                <div class="bg-white rounded-lg shadow-lg p-8 service-card fade-in-up" style="transition-delay: 300ms;">
+                    <div class="text-yellow-500 text-4xl mb-4"><i class="fas fa-chart-line"></i></div>
+                    <h3 class="text-xl font-bold mb-3">JASP & Statistical Analysis</h3>
+                    <p class="text-gray-600">Step-by-step assistance with JASP, SPSS, data interpretation, and report writing.</p>
+                </div>
+                <div class="bg-white rounded-lg shadow-lg p-8 service-card fade-in-up" style="transition-delay: 400ms;">
+                    <div class="text-indigo-500 text-4xl mb-4"><i class="fas fa-chalkboard-teacher"></i></div>
+                    <h3 class="text-xl font-bold mb-3">Interactive Workshops</h3>
+                    <p class="text-gray-600">Practical skill-building sessions on therapeutic techniques and research methods.</p>
+                </div>
+                <div class="bg-white rounded-lg shadow-lg p-8 service-card fade-in-up" style="transition-delay: 500ms;">
+                    <div class="text-teal-500 text-4xl mb-4"><i class="fas fa-question-circle"></i></div>
+                    <h3 class="text-xl font-bold mb-3">Custom Support</h3>
+                    <p class="text-gray-600">Not sure what you need? Consult with us to find the right solution for you.</p>
+                </div>
+                <div class="bg-white rounded-lg shadow-lg p-8 service-card fade-in-up" style="transition-delay: 600ms;">
+                    <div class="text-cyan-500 text-4xl mb-4"><i class="fas fa-file-signature"></i></div>
+                    <h3 class="text-xl font-bold mb-3">BPCE-144 Dissertation/Project</h3>
+                    <p class="text-gray-600">Comprehensive support for IGNOU's BPCE-144, from topic selection to final report writing.</p>
+                </div>
+                <div class="bg-white rounded-lg shadow-lg p-8 service-card fade-in-up" style="transition-delay: 700ms;">
+                    <div class="text-orange-500 text-4xl mb-4"><i class="fas fa-clipboard-list"></i></div>
+                    <h3 class="text-xl font-bold mb-3">Practical File Writing</h3>
+                    <p class="text-gray-600">Neat and structured writing for practical files, ensuring all components are accurately documented.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <section id="testimonials" class="py-16 sm:py-20 bg-gray-100">
+        <div class="container mx-auto px-4 sm:px-6">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl md:text-4xl font-bold text-gray-900">Words From Our Students</h2>
+                <p class="text-gray-600 mt-4 max-w-2xl mx-auto">Don't just take our word for it—see what psychology students say about PsySocare.</p>
+            </div>
+            
+            <div class="relative">
+                <button id="prev-slide" class="absolute top-1/2 left-0 transform -translate-y-1/2 -translate-x-4 bg-white rounded-full p-2 shadow-md z-10 hidden md:block" aria-label="Previous Slide">
+                    <i class="fas fa-chevron-left text-blue-700 w-6 h-6"></i>
+                </button>
+                
+                <div id="testimonial-container" class="flex overflow-x-auto space-x-8 pb-4 scrollbar-hide">
+                    <div class="flex-none bg-white rounded-lg shadow-lg p-6 w-80">
+                        <i class="fas fa-quote-left text-blue-200 text-2xl mb-4"></i>
+                        <p class="text-gray-600 mb-4">"The guidance for my research paper was invaluable. They broke down the statistical analysis and made it so easy to understand."</p>
+                        <h4 class="font-bold text-gray-900">Priya Sharma</h4>
+                        <p class="text-sm text-gray-500">M.A. Psychology Student</p>
+                    </div>
+                    <div class="flex-none bg-white rounded-lg shadow-lg p-6 w-80">
+                        <i class="fas fa-quote-left text-blue-200 text-2xl mb-4"></i>
+                        <p class="text-gray-600 mb-4">"PsySocare helped me build a professional CV that got me shortlisted for three internships! A must for any final year student."</p>
+                        <h4 class="font-bold text-gray-900">Rohan Gupta</h4>
+                        <p class="text-sm text-gray-500">B.A. (Hons) Psychology</p>
+                    </div>
+                    <div class="flex-none bg-white rounded-lg shadow-lg p-6 w-80">
+                        <i class="fas fa-quote-left text-blue-200 text-2xl mb-4"></i>
+                        <p class="text-gray-600 mb-4">"I was struggling with JASP for my dissertation. Their step-by-step support was a lifesaver. Highly recommended."</p>
+                        <h4 class="font-bold text-gray-900">Anjali Menon</h4>
+                        <p class="text-sm text-gray-500">Clinical Psychology Grad</p>
+                    </div>
+                    <div class="flex-none bg-white rounded-lg shadow-lg p-6 w-80">
+                        <i class="fas fa-quote-left text-blue-200 text-2xl mb-4"></i>
+                        <p class="text-gray-600 mb-4">"The academic counseling sessions really helped me manage my exam stress and create a proper study plan."</p>
+                        <h4 class="font-bold text-gray-900">Vikram Singh</h4>
+                        <p class="text-sm text-gray-500">Psychology Undergraduate</p>
+                    </div>
+                    <div class="flex-none bg-white rounded-lg shadow-lg p-6 w-80">
+                        <i class="fas fa-quote-left text-blue-200 text-2xl mb-4"></i>
+                        <p class="text-gray-600 mb-4">"Fast, professional, and genuinely helpful. They helped me with a case study assignment on very short notice."</p>
+                        <h4 class="font-bold text-gray-900">Sneha Patel</h4>
+                        <p class="text-sm text-gray-500">M.Sc. Student</p>
+                    </div>
+                    <div class="flex-none bg-white rounded-lg shadow-lg p-6 w-80">
+                        <i class="fas fa-quote-left text-blue-200 text-2xl mb-4"></i>
+                        <p class="text-gray-600 mb-4">"Excellent support for M.Phil entrance exam preparation. The mock interviews were particularly useful."</p>
+                        <h4 class="font-bold text-gray-900">Arjun Reddy</h4>
+                        <p class="text-sm text-gray-500">Aspiring M.Phil Candidate</p>
+                    </div>
+                    <div class="flex-none bg-white rounded-lg shadow-lg p-6 w-80">
+                        <i class="fas fa-quote-left text-blue-200 text-2xl mb-4"></i>
+                        <p class="text-gray-600 mb-4">"The workshop on research methods was very practical and cleared up a lot of my doubts. Great for building skills."</p>
+                        <h4 class="font-bold text-gray-900">Isha Nair</h4>
+                        <p class="text-sm text-gray-500">Research Scholar</p>
+                    </div>
+                    <div class="flex-none bg-white rounded-lg shadow-lg p-6 w-80">
+                        <i class="fas fa-quote-left text-blue-200 text-2xl mb-4"></i>
+                        <p class="text-gray-600 mb-4">"They provide such a confidential and non-judgmental space for counseling. It helped me immensely during a tough semester."</p>
+                        <h4 class="font-bold text-gray-900">Sameer Khan</h4>
+                        <p class="text-sm text-gray-500">Psychology Student</p>
+                    </div>
+                    <div class="flex-none bg-white rounded-lg shadow-lg p-6 w-80">
+                        <i class="fas fa-quote-left text-blue-200 text-2xl mb-4"></i>
+                        <p class="text-gray-600 mb-4">"My grades improved significantly after getting their help on my assignments. The feedback is detailed and constructive."</p>
+                        <h4 class="font-bold text-gray-900">Divya Chauhan</h4>
+                        <p class="text-sm text-gray-500">Second Year Student</p>
+                    </div>
+                    <div class="flex-none bg-white rounded-lg shadow-lg p-6 w-80">
+                        <i class="fas fa-quote-left text-blue-200 text-2xl mb-4"></i>
+                        <p class="text-gray-600 mb-4">"A fantastic resource for any psychology student in India. Quick to respond and the quality of work is top-notch."</p>
+                        <h4 class="font-bold text-gray-900">Karan Malhotra</h4>
+                        <p class="text-sm text-gray-500">Ph.D. Aspirant</p>
+                    </div>
+                </div>
+
+                <button id="next-slide" class="absolute top-1/2 right-0 transform -translate-y-1/2 translate-x-4 bg-white rounded-full p-2 shadow-md z-10 hidden md:block" aria-label="Next Slide">
+                    <i class="fas fa-chevron-right text-blue-700 w-6 h-6"></i>
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <section id="process" class="py-16 sm:py-20 bg-white">
+        <div class="container mx-auto px-4 sm:px-6">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl md:text-4xl font-bold text-gray-900">Our Process</h2>
+                <p class="text-gray-600 mt-4 max-w-2xl mx-auto">Get the help you need in three simple steps.</p>
+            </div>
+            <div class="flex flex-col md:flex-row justify-center items-center text-center space-y-8 md:space-y-0 md:space-x-8">
+                <div class="flex-1 fade-in-up">
+                    <div class="bg-blue-100 text-blue-700 rounded-full w-24 h-24 flex items-center justify-center mx-auto text-3xl font-bold">1</div>
+                    <h3 class="text-xl font-bold mt-6 mb-2">Contact Us</h3>
+                    <p class="text-gray-600 px-4">Reach out via WhatsApp or our contact form with your requirements.</p>
+                </div>
+                <div class="text-blue-300 text-4xl md:block fade-in-up transform md:rotate-0 rotate-90" style="transition-delay: 200ms;"><i class="fas fa-arrow-right"></i></div>
+                 <div class="flex-1 fade-in-up" style="transition-delay: 400ms;">
+                    <div class="bg-blue-100 text-blue-700 rounded-full w-24 h-24 flex items-center justify-center mx-auto text-3xl font-bold">2</div>
+                    <h3 class="text-xl font-bold mt-6 mb-2">Get a Plan</h3>
+                    <p class="text-gray-600 px-4">We'll create a customized plan and a transparent quote for you.</p>
+                </div>
+                <div class="text-blue-300 text-4xl md:block fade-in-up transform md:rotate-0 rotate-90" style="transition-delay: 600ms;"><i class="fas fa-arrow-right"></i></div>
+                 <div class="flex-1 fade-in-up" style="transition-delay: 800ms;">
+                    <div class="bg-blue-100 text-blue-700 rounded-full w-24 h-24 flex items-center justify-center mx-auto text-3xl font-bold">3</div>
+                    <h3 class="text-xl font-bold mt-6 mb-2">Start Learning</h3>
+                    <p class="text-gray-600 px-4">Begin your one-on-one online sessions and excel in your studies.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="py-16 sm:py-20 bg-gray-100">
+        <div class="container mx-auto px-4 sm:px-6">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl md:text-4xl font-bold text-gray-900">Get in Touch</h2>
+                <p class="text-gray-600 mt-4 max-w-2xl mx-auto">We're here to help. Reach out to us for any queries or to get started.</p>
+            </div>
+            <div class="max-w-4xl mx-auto bg-white p-6 sm:p-8 rounded-lg shadow-lg fade-in-up">
+                <form>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <div>
+                            <label for="name" class="block text-sm font-medium text-gray-700 mb-1">Name</label>
+                            <input type="text" id="name" class="p-3 mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500">
+                        </div>
+                        <div>
+                            <label for="email" class="block text-sm font-medium text-gray-700 mb-1">Email</label>
+                            <input type="email" id="email" class="p-3 mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500">
+                        </div>
+                        <div class="md:col-span-2">
+                            <label for="message" class="block text-sm font-medium text-gray-700 mb-1">Message</label>
+                            <textarea id="message" rows="4" class="p-3 mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500"></textarea>
+                        </div>
+                    </div>
+                    <div class="text-center mt-6">
+                        <button type="submit" class="w-full sm:w-auto bg-blue-700 hover:bg-blue-800 text-white font-bold py-3 px-8 rounded-full transition duration-300 btn-primary">Send Message</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </section>
+    
+    <section id="cta-questions" class="bg-blue-800">
+        <div class="container mx-auto px-4 sm:px-6 py-16 text-center">
+            <h2 class="text-3xl font-bold text-white">Still Have Questions?</h2>
+            <p class="text-blue-200 mt-4 max-w-2xl mx-auto">Our team is standing by to answer your queries and help you find the right support solution.</p>
+            <div class="mt-8 flex justify-center items-center flex-col sm:flex-row gap-4">
+                <a href="https://wa.me/psysoca" target="_blank" class="w-full sm:w-auto inline-flex items-center justify-center px-6 py-3 border border-transparent text-base font-medium rounded-full text-white bg-green-500 hover:bg-green-600 transition">
+                    <i class="fab fa-whatsapp mr-2"></i> WhatsApp Quick Chat
+                </a>
+                <a href="tel:+918298455989" class="w-full sm:w-auto inline-flex items-center justify-center px-6 py-3 border border-blue-400 text-base font-medium rounded-full text-white bg-blue-700 hover:bg-blue-600 transition">
+                   <i class="fas fa-phone-alt mr-2"></i> Call Us Directly
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <footer class="bg-gray-900 text-white py-12">
+        <div class="container mx-auto px-6">
+            <div class="grid md:grid-cols-3 gap-8">
+                <div>
+                    <a href="#" class="flex items-center mb-4">
+                        <img src="https://i.ibb.co/RkYyMWfh/craiyon-172947-image.png" alt="Psysocare Logo" class="h-10 w-10 mr-2 bg-white rounded-full p-1">
+                        <span class="text-2xl font-bold">PSYSOCARE</span>
+                    </a>
+                    <p class="text-gray-400">Psychology Education | Academic Writing | Research support for psychology students across India.</p>
+                    <p class="text-gray-500 text-sm mt-2">MSME Udyam Registered</p>
+                </div>
+                <div>
+                    <h4 class="text-lg font-semibold mb-4">Quick Links</h4>
+                    <ul class="space-y-2">
+                        <li><a href="#about" class="hover:text-blue-400">Why Choose Us</a></li>
+                        <li><a href="#services" class="hover:text-blue-400">Our Services</a></li>
+                        <li><a href="#process" class="hover:text-blue-400">How It Works</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="text-lg font-semibold mb-4">Connect With Us</h4>
+                    <div class="flex space-x-4">
+                        <a href="https://www.instagram.com/psysocare/" target="_blank" class="text-2xl hover:text-pink-500" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                        <a href="https://www.threads.net/@psysocare" target="_blank" class="text-2xl hover:text-gray-400" aria-label="Threads"><i class="fab fa-threads"></i></a>
+                        <a href="https://wa.me/psysoca" target="_blank" class="text-2xl hover:text-green-500" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+                        <a href="https://www.youtube.com/@psysocare" target="_blank" class="text-2xl hover:text-red-600" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="border-t border-gray-700 mt-8 pt-6 text-center text-gray-500">
+                <p>© 2025 PsySocare Psychology Education | Academic Writing | Research. All rights reserved.</p>
+                 <p class="mt-1">Online Only | MSME Udyam Registered</p>
+            </div>
+        </div>
+    </footer>
+
+    <a href="https://wa.me/psysoca" target="_blank" class="whatsapp-float" aria-label="Chat on WhatsApp"><i class="fab fa-whatsapp"></i></a>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const menuBtn = document.getElementById('menu-btn');
+            const mobileMenu = document.getElementById('mobile-menu');
+            menuBtn.addEventListener('click', () => {
+                mobileMenu.classList.toggle('hidden');
+            });
+
+            const handleLinkClick = (e) => {
+                if (e.currentTarget.href.includes('#')) {
+                    e.preventDefault();
+                    const targetId = e.currentTarget.getAttribute('href');
+                    const targetElement = document.querySelector(targetId);
+                    if (targetElement) {
+                        targetElement.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                    }
+                    if (!mobileMenu.classList.contains('hidden')) {
+                        mobileMenu.classList.add('hidden');
+                    }
+                }
+            };
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', handleLinkClick);
+            });
+            
+            const testimonialContainer = document.getElementById('testimonial-container');
+            const prevButton = document.getElementById('prev-slide');
+            const nextButton = document.getElementById('next-slide');
+
+            nextButton.addEventListener('click', () => {
+                const scrollAmount = testimonialContainer.clientWidth;
+                testimonialContainer.scrollBy({ left: scrollAmount, behavior: 'smooth' });
+            });
+
+            prevButton.addEventListener('click', () => {
+                const scrollAmount = testimonialContainer.clientWidth;
+                testimonialContainer.scrollBy({ left: -scrollAmount, behavior: 'smooth' });
+            });
+
+            const faders = document.querySelectorAll('.fade-in-up');
+            const appearOptions = { threshold: 0.1, rootMargin: "0px 0px -50px 0px" };
+            const appearOnScroll = new IntersectionObserver((entries, observer) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, appearOptions);
+            faders.forEach(fader => appearOnScroll.observe(fader));
+            
+            const threadsIcon = document.querySelector('.fa-threads');
+            if (threadsIcon && !threadsIcon.querySelector('svg')) {
+                threadsIcon.innerHTML = `<svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 16 16"><path fill="currentColor" d="M8.59.39H6.73a4.83 4.83 0 0 0-4.83 4.83v2.36a4.83 4.83 0 0 0 4.83 4.83h1.86a4.83 4.83 0 0 0 4.83-4.83V5.22a4.83 4.83 0 0 0-4.83-4.83m3.75 7.19a3.75 3.75 0 0 1-3.75 3.75H6.73a3.75 3.75 0 0 1-3.75-3.75V5.22a3.75 3.75 0 0 1 3.75-3.75h1.86a3.75 3.75 0 0 1 3.75 3.75zM6.1 6.37a.57.57 0 0 0-.57.57v2.12c0 .31.26.57.57.57s.57-.26.57-.57V6.94c0-.31-.26-.57-.57-.57m3.8 0a.57.57 0 0 0-.57.57v2.12c0 .31.26.57.57.57s.57-.26.57-.57V6.94c0-.31-.26-.57-.57-.57"/></svg>`;
+            }
+        });
+    </script>
+
+</body>
+</html>
